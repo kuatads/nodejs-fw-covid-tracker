@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>FullWin Covid Tracker</title>
+        <link rel="icon" href="">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body> 
+        <div class="main-content">
+           {{>header}}
+           <h2>World Wide Summary</h2>
+           
+           <!-- Statistics Chart for the -->
+           <div class="wrapper">
+                <div class="panel">
+                    <div class="panel-header">
+                    <h3 class="title">Total Active Case: {{totalActiveCase}}</h3>
+            
+                    <div class="calendar-views">
+                        <span>World meter for Corana Virus</span>
+                    </div>
+                    </div>
+            
+                    <div class="panel-body">
+                        <div class="categories">
+                            <div class="category">
+                            <span>New Confirmed</span>
+                            <span>{{newconfirmed}}</span>
+                            </div>
+                            <div class="category">
+                            <span>New Deaths</span>
+                            <span>{{newDeaths}}</span>
+                            </div>
+                            <div class="category">
+                            <span>New Recoveries</span>
+                            <span>{{newRecoveries}}</span>
+                            </div>
+                        </div>
+                
+                        <div class="chart">
+                            <p>Total Confirmed</p>
+                            <div class="container">
+                            <div style="width:{{confirmedPercent}}%;"class="skills confirmed">{{totalConfirmed}}</div>
+                            </div>
+
+                            <p>Total Deaths</p>
+                            <div class="container">
+                            <div style="width:{{deathsPercent}}%;" class="skills deaths">{{totalDeaths}}</div>
+                            </div>
+
+                            <p>Total Recovered</p>
+                            <div class="container">
+                            <div style="width: {{recoveryPercent}}%;" class="skills recovered">{{totalRecovered}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        {{>footer}}
+        <!--
+        <script src="/js/app.js"></script>
+        -->
+    </body>
+</html>
