@@ -37,7 +37,8 @@ const request = https.request(url, (response)=>{
         app.get('', (req, res) => {
             res.render('index', {
                 title: 'FullWin Covid-19 Tracker ',
-                name: 'Philippine Fullwin Group of Companies Inc. IT Department',
+                author: 'Philippine Fullwin Group of Companies Inc. IT Department',
+                page: 'Global',
                 newconfirmed: body.Global.NewConfirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 totalConfirmed: body.Global.TotalConfirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 newDeaths: body.Global.NewDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
@@ -47,14 +48,16 @@ const request = https.request(url, (response)=>{
                 totalActiveCase: (body.Global.TotalConfirmed - body.Global.TotalDeaths - body.Global.TotalRecovered).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 confirmedPercent: (body.Global.TotalConfirmed / body.Global.TotalConfirmed) * 100,
                 deathsPercent: (body.Global.TotalDeaths / body.Global.TotalConfirmed) * 100,
-                recoveryPercent:(body.Global.TotalRecovered / body.Global.TotalConfirmed) * 100
+                recoveryPercent:(body.Global.TotalRecovered / body.Global.TotalConfirmed) * 100,
+                activeCasePercent:((body.Global.TotalConfirmed - body.Global.TotalDeaths - body.Global.TotalRecovered)/ body.Global.TotalConfirmed) * 100
             })
         }) 
 
         app.get('/philippines', (req, res) => {
             res.render('ph',{
                 title: 'FullWin Covid-19 Tracker ',
-                name: 'Philippine Fullwin Group of Companies Inc. IT Department',
+                author: 'Philippine Fullwin Group of Companies Inc. IT Department',
+                page: 'Philippines',
                 newconfirmed: body.Countries[132].NewConfirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 totalConfirmed: body.Countries[132].TotalConfirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 newDeaths: body.Countries[132].NewDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
@@ -65,7 +68,8 @@ const request = https.request(url, (response)=>{
                 dateUpdate: body.Countries[132].Date,
                 confirmedPercent: (body.Countries[132].TotalConfirmed / body.Countries[132].TotalConfirmed) * 100,
                 deathsPercent: (body.Countries[132].TotalDeaths / body.Countries[132].TotalConfirmed) * 100,
-                recoveryPercent:(body.Countries[132].TotalRecovered / body.Countries[132].TotalConfirmed) * 100
+                recoveryPercent:(body.Countries[132].TotalRecovered / body.Countries[132].TotalConfirmed) * 100,
+                activeCasePercent:((body.Countries[132].TotalConfirmed - body.Countries[132].TotalDeaths - body.Countries[132].TotalRecovered)/ body.Countries[132].TotalConfirmed) * 100
             })
         })
     })

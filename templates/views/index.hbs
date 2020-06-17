@@ -1,68 +1,180 @@
-<!DOCTYPE html>
 
-<html>
-    <head>
-        <title>FullWin Covid Tracker</title>
-        <link rel="icon" href="">
-        <link rel="stylesheet" href="/css/styles.css">
-    </head>
-    <body> 
-        <div class="main-content">
-           {{>header}}
-           <h2>World Wide Summary</h2>
-           
-           <!-- Statistics Chart for the -->
-           <div class="wrapper">
-                <div class="panel">
-                    <div class="panel-header">
-                    <h3 class="title">Total Active Case: {{totalActiveCase}}</h3>
-            
-                    <div class="calendar-views">
-                        <span>World meter for Corana Virus</span>
-                    </div>
-                    </div>
-            
-                    <div class="panel-body">
-                        <div class="categories">
-                            <div class="category">
-                            <span>New Confirmed</span>
-                            <span>{{newconfirmed}}</span>
-                            </div>
-                            <div class="category">
-                            <span>New Deaths</span>
-                            <span>{{newDeaths}}</span>
-                            </div>
-                            <div class="category">
-                            <span>New Recoveries</span>
-                            <span>{{newRecoveries}}</span>
-                            </div>
+{{>header}}
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+          <br/>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">{{page}}</h1>
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+             <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Positive</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{totalConfirmed}}</div>
                         </div>
-                
-                        <div class="chart">
-                            <p>Total Confirmed</p>
-                            <div class="container">
-                            <div style="width:{{confirmedPercent}}%;"class="skills confirmed">{{totalConfirmed}}</div>
-                            </div>
-
-                            <p>Total Deaths</p>
-                            <div class="container">
-                            <div style="width:{{deathsPercent}}%;" class="skills deaths">{{totalDeaths}}</div>
-                            </div>
-
-                            <p>Total Recovered</p>
-                            <div class="container">
-                            <div style="width: {{recoveryPercent}}%;" class="skills recovered">{{totalRecovered}}</div>
-                            </div>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: {{confirmedPercent}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
 
-        
-        {{>footer}}
-        <!--
-        <script src="/js/app.js"></script>
-        -->
-    </body>
-</html>
+            <!-- Earnings (Monthly) Card Example -->
+             <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Recoveries</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{totalRecovered}}</div>
+                        </div>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{recoveryPercent}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Deaths</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{totalDeaths}}</div>
+                        </div>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: {{deathsPercent}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pending Requests Card Example -->
+             <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Active Cases</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{totalActiveCase}}</div>
+                        </div>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: {{activeCasePercent}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Content Column -->
+            <div class="col-lg-8 mb-4">
+
+              <!-- Color System -->
+              <div class="row">
+                <div class="col-lg-4 mb-4">
+                  <div class="card bg-primary text-white shadow">
+                    <div class="card-body">
+                      {{newconfirmed}}
+                      <div class="text-white-50 small">Today's Positive</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                  <div class="card bg-success text-white shadow">
+                    <div class="card-body">
+                      {{newRecoveries}}
+                      <div class="text-white-50 small">Today's Recoveries</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                  <div class="card bg-danger text-white shadow">
+                    <div class="card-body">
+                      {{newDeaths}}
+                      <div class="text-white-50 small">Today's Deaths</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-4 mb-4">
+
+              <!-- Illustrations -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">About</h6>
+                </div>
+                <div class="card-body">
+                    A tracker that provides updated status for Covid-19 cases worldwide. Information is available for Confirmed, Recovered, Active and Deaths due to Covid-19. This app consumes the Web API service from ArcGIS.
+                    <hr>
+                    <small><strong>Disclaimer</strong>
+                    The information contained in this website is for general information purposes only. The information is provided by datasets from available API services and the creator does not own, maintain, or modify the datasets. While website creator keeps the information, the creator makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
+                </small>
+                </div>
+                
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+{{>footer}}
