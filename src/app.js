@@ -46,6 +46,7 @@ const request = https.request(url, (response)=>{
                 newRecoveries: body.Global.NewRecovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 totalRecovered: body.Global.TotalRecovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 totalActiveCase: (body.Global.TotalConfirmed - body.Global.TotalDeaths - body.Global.TotalRecovered).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+                dateUpdate: body.Countries[132].Date,
                 confirmedPercent: (body.Global.TotalConfirmed / body.Global.TotalConfirmed) * 100,
                 deathsPercent: (body.Global.TotalDeaths / body.Global.TotalConfirmed) * 100,
                 recoveryPercent:(body.Global.TotalRecovered / body.Global.TotalConfirmed) * 100,
