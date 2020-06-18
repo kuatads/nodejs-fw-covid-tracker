@@ -73,6 +73,14 @@ const request = https.request(url, (response)=>{
                 activeCasePercent:((body.Countries[132].TotalConfirmed - body.Countries[132].TotalDeaths - body.Countries[132].TotalRecovered)/ body.Countries[132].TotalConfirmed) * 100
             })
         })
+
+        app.get('/about', (req, res)=>{
+            res.render('about',{
+                title: 'FullWin Covid Tracker ',
+                author: 'Philippine Fullwin Group of Companies Inc. IT Department',
+                page: 'About Fullwin Covid-19 Tracker'
+            })
+        })
     })
 
 })
