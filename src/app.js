@@ -36,7 +36,7 @@ const request = https.request(url, (response)=>{
         //console.log(body.Global)
         app.get('', (req, res) => {
             res.render('index', {
-                title: 'FullWin Covid-19 Tracker ',
+                title: 'FullWin Covid Tracker ',
                 author: 'Philippine Fullwin Group of Companies Inc. IT Department',
                 page: 'Global',
                 newconfirmed: body.Global.NewConfirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
@@ -55,7 +55,7 @@ const request = https.request(url, (response)=>{
 
         app.get('/philippines', (req, res) => {
             res.render('ph',{
-                title: 'FullWin Covid-19 Tracker ',
+                title: 'FullWin Covid Tracker ',
                 author: 'Philippine Fullwin Group of Companies Inc. IT Department',
                 page: 'Philippines',
                 newconfirmed: body.Countries[132].NewConfirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
