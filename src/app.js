@@ -65,12 +65,12 @@ const request = https.request(url, (response)=>{
                 totalDeaths: body.Countries[133].TotalDeaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 newRecoveries: body.Countries[133].NewRecovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 totalRecovered: body.Countries[133].TotalRecovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-                totalActiveCase: (body.Countries[133].TotalConfirmed - body.Countries[132].TotalDeaths - body.Countries[132].TotalRecovered).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+                totalActiveCase: (body.Countries[133].TotalConfirmed - body.Countries[133].TotalDeaths - body.Countries[133].TotalRecovered).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 dateUpdate: body.Countries[133].Date,
-                confirmedPercent: (body.Countries[133].TotalConfirmed / body.Countries[132].TotalConfirmed) * 100,
-                deathsPercent: (body.Countries[133].TotalDeaths / body.Countries[132].TotalConfirmed) * 100,
-                recoveryPercent:(body.Countries[133].TotalRecovered / body.Countries[132].TotalConfirmed) * 100,
-                activeCasePercent:((body.Countries[133].TotalConfirmed - body.Countries[132].TotalDeaths - body.Countries[132].TotalRecovered)/ body.Countries[132].TotalConfirmed) * 100
+                confirmedPercent: (body.Countries[133].TotalConfirmed / body.Countries[133].TotalConfirmed) * 100,
+                deathsPercent: (body.Countries[133].TotalDeaths / body.Countries[133].TotalConfirmed) * 100,
+                recoveryPercent:(body.Countries[133].TotalRecovered / body.Countries[133].TotalConfirmed) * 100,
+                activeCasePercent:((body.Countries[133].TotalConfirmed - body.Countries[133].TotalDeaths - body.Countries[133].TotalRecovered)/ body.Countries[133].TotalConfirmed) * 100
             })
         })
 
